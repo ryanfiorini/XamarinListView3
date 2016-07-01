@@ -11,9 +11,9 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 
-namespace XamarinListView
+namespace XamarinListView.Fragments
 {
-    public class FragmentAtmListview : Fragment
+    public class FragmentAtmListview : Android.Support.V4.App.Fragment
     {
         List<ATM> atms;
         ListView listView;
