@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace XamarinListView.Fragments
 {
-    public class FragmentAtmListview : Android.Support.V4.App.Fragment
+    public class AtmListviewFragment : Android.Support.V4.App.Fragment
     {
         List<ATM> atms;
         ListView listView;
@@ -41,7 +41,7 @@ namespace XamarinListView.Fragments
 
             listView = Activity.FindViewById<ListView>(Resource.Id.listView1); // get reference to the ListView in the layout
                                                                                // populate the listview with data
-            listView.Adapter = new HomeScreenAdapter(Activity, atms);
+            listView.Adapter = new AtmListviewAdapter(Activity, atms);
             listView.ItemClick += ListView_ItemClick;
         }
 
@@ -51,4 +51,40 @@ namespace XamarinListView.Fragments
         }
 
     }
+
+    public class AtmListviewAdapter : BaseAdapter<ATM>
+    {
+        List<ATM> items;
+        Activity context;
+        public AtmListviewAdapter(Activity context, List<ATM> items)
+            : base()
+        {
+            this.context = context;
+            this.items = items;
+        }
+        public override long GetItemId(int position)
+        {
+            return position;
+        }
+        public override ATM this[int position]
+        {
+            get { return items[position]; }
+        }
+        public override int Count
+        {
+            get { return items.Count; }
+        }
+        public override View GetView(int position, View convertView, ViewGroup parent)
+        {
+            var item = items[position];
+            View view = convertView;
+            if (view == null) // no view to re-use, create new
+                view = context.LayoutInflater.Inflate(Resource.Layout.CustomListView, null);
+            view.FindViewById<TextView>(Resource.Id.Text1).Text = item.Address;
+            view.FindViewById<TextView>(Resource.Id.Text2).Text = item.Distance;
+            //view.FindViewById<ImageView>(Resource.Id.Image).SetImageResource(item.ImageResourceId);
+            return view;
+        }
+    }
+
 }

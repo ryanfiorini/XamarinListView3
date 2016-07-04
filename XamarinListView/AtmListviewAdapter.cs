@@ -12,11 +12,11 @@ using Android.Widget;
 
 namespace XamarinListView
 {
-    public class HomeScreenAdapter : BaseAdapter<ATM>
+    public class AtmListviewAdapter : BaseAdapter<ATM>
     {
         List<ATM> items;
         Activity context;
-        public HomeScreenAdapter(Activity context, List<ATM> items)
+        public AtmListviewAdapter(Activity context, List<ATM> items)
             : base()
         {
             this.context = context;
