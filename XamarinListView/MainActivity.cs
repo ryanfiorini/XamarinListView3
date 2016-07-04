@@ -13,7 +13,7 @@ using XamarinListView.Fragments;
 namespace XamarinListView
 {
     [Activity(Label = "XamarinListView", MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : Android.Support.V4.App.FragmentActivity, ViewPager.IOnPageChangeListener
+    public class MainActivity : Android.Support.V4.App.FragmentActivity
     {
         int count = 1;
         private ViewPager mCardsViewPager;
@@ -36,21 +36,21 @@ namespace XamarinListView
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            //if (bundle == null)
-            //{
-            //    FragmentTransaction transaction = FragmentManager.BeginTransaction();
-            //    var fragment = new XamarinListView.FragmentAtmListview();
-            //    //var fragment = new XamarinListView.Fragments.FragmentMain();
-            //    transaction.Replace(Resource.Id.titles_fragment, fragment);
-            //    transaction.Commit();
-            //}
+            if (bundle == null)
+            {
+                FragmentTransaction transaction = FragmentManager.BeginTransaction();
+                //var fragment = new XamarinListView.FragmentAtmListview();
+                var fragment = new XamarinListView.Fragments.MainFragement();
+                transaction.Replace(Resource.Id.titles_fragment, fragment);
+                transaction.Commit();
+            }
 
             //var view = FindViewById<ViewPager>(Resource.Id.)
 
             var adapter =
                     new AtmFinderAdapter(SupportFragmentManager,
                         new FirstFragement(), new FragmentAtmListview(), new PagerFragment());
-            var viewPager = FindViewById<Android.Support.V4.View.ViewPager>(Resource.Id.viewPager);
+            var viewPager = FindViewById<Android.Support.V4.View.ViewPager>(Resource.Id.vpPager);
             viewPager.Adapter = adapter;
         }
     }

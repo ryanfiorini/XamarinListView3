@@ -75,9 +75,6 @@ namespace XamarinListView
 			// aapt resource value: 0x7f050005
 			public const int listView1 = 2131034117;
 			
-			// aapt resource value: 0x7f05000b
-			public const int pagerTabStrip = 2131034123;
-			
 			// aapt resource value: 0x7f050007
 			public const int radioGroup1 = 2131034119;
 			
@@ -91,7 +88,7 @@ namespace XamarinListView
 			public const int textView1 = 2131034116;
 			
 			// aapt resource value: 0x7f05000a
-			public const int viewPager = 2131034122;
+			public const int titles_fragment = 2131034122;
 			
 			// aapt resource value: 0x7f050006
 			public const int vpPager = 2131034118;
